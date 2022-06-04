@@ -45,10 +45,14 @@ h2 + p {
 
 .top-text {
   font-size: 0.625rem;
+  margin: 0;
+  padding-top: 2px;
   color: #f18119;
   font-weight: 900;
   text-transform: uppercase;
   order: -1;
+  border-top: 5px solid #f18119;
+  border-image: linear-gradient(to left, #ff713b, #ffa51d) 1;
 }
 
 .fine-print {
@@ -65,15 +69,16 @@ strong {
    ================= */
 
 .intro {
-  background-image: url(img/dark-ribs.jpg);
-  background-size: cover;
-  background-color: #404040;
-  background-position: center;
-  padding: 0 0.5em 2em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 50vh;
+    background-image: url(img/ribs.jpg);
+    background-color: #404040;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    padding: 0 .5em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 50vh;
 }
 
 /* =================
