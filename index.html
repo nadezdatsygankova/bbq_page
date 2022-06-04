@@ -1,47 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BBQ</title>
-</head>
-
-<body>
-  <div class="wrapper">
-  <header class="items">
-    <div class="container color-container">
-      <div class="header-text-wrapper">
-        <p class="header-text">Mouthwatering delicious</p>
-      </div>
-      <div class="header-description">
-      <h1>Learn how to make <strong>the best BBQ ribs</strong> in town</h1>
-      <h2>join us for this live webinar</h2>
-    </div>
-    </div>
-  </header>
-  <main class="container items">
-    <section>
-      <h3>Become to BBQ master!</h3>
-      <h4>Register today</h4>
-      <p class="registration-text">BBQ isn't just standing in front of your grill with it on full blast and hoping for the best. It's an art! One way to speed up the process is to learn from the best. You can do just that by signing up for this free webinar!</p>
-      <div class="form-group">
-        <input type="text" placeholder="first name">
-        <input type="text" placeholder="email">
-        <div class="btn-group">
-          <a class="btn" href="http://">Register</a>
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <title>Become a BBQ master!</title>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900&display=swap" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="intro">
+            <h1>Learn how to make <strong>the best BBQ ribs</strong> in town</h1>
+            <p>Join us for this live webinar</p>
+            <p class="top-text">Mouthwateringly delicious</p>
         </div>
-        <p class="bottom-text">We'll never share your information without your permission</p>
-      </div>
 
-    </section>
-  </main>
-</div>
-</body>
+        <div id="Main-Content" class="main-content">
+            <h2>Become a BBQ master! </h2>
+            <p>Register Today</p>
+            <p>BBQ isn't just standing in front of your grill with it on full blast and hoping for the best. It's an art! One way to speed up the process is to learn from the best. You can do just that by signing up for this free webinar!</p>
 
+            <form id="Email-Collector" class="email-collector" action="#" method="POST">
+                <input name="firstName" type="text" required placeholder="first name">
+                <input name="emailAddress" type="email" required  placeholder="email">
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+
+            <p class="fine-print">We'll never share your information without your permission</p>
+        </div>
+
+        <script>
+            let emailCollectorForm = document.getElementById("Email-Collector")
+            emailCollectorForm.addEventListener("submit", event => {
+                event.preventDefault()
+                console.log("The event is firing!")
+
+                let ourFormData = new FormData(event.target)
+
+                let userFirstName = ourFormData.get("firstName")
+
+                let updatedHtmlContent = `
+                    <h2>Congratulations, ${userFirstName}!</h2>
+
+                    <p>You're on your way to becoming a BBQ Master!</p>
+
+                    <p class="fine-print">We'll never share your information without your permission</p>
+                `
+                let ourMainContent = document.getElementById("Main-Content")
+                ourMainContent.innerHTML = updatedHtmlContent
+            })
+        </script>
+    </body>
 </html>
